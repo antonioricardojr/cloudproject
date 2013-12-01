@@ -27,10 +27,15 @@ $request = "http://where.yahooapis.com/v1/places.q('" . $location . "')?appid=" 
 
 $xml_request = simplexml_load_file($request);
 
-$item = $xml_request->children()[0];
+		$item = $xml_request->children();		
+		$a_item = $item[0];
+		
+
+
+
 $count = 0;
 
-	foreach ($item as $second_gen){
+	foreach ($a_item as $second_gen){
 		if($count == 0){
 			$WOEID = $second_gen;
 			$count = $count + 1;
