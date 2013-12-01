@@ -18,22 +18,23 @@
 // //Yahoo! application ID
 $appId = "5cHUpHrIkY31Hwc7X8Kr9t9fZ7Xg15OoBcKcTuXz2l8IOgrlQfxb55PNcrimKpUf";
 
-if(isset($_POST["location"])){
-$location = $_POST["location"];
+if(isset($_POST["location"]) and $_POST["location"] != ""){
 
-if($location != null){
+	$location = $_POST["location"];
+	$location = str_replace(' ', '+', $location);
+	if($location != null){
 
-$request = "http://where.yahooapis.com/v1/places.q('" . $location . "')?appid=" . $appId;
+	$request = "http://where.yahooapis.com/v1/places.q('" . $location . "')?appid=" . $appId;
 
-$xml_request = simplexml_load_file($request);
+	$xml_request = simplexml_load_file($request);
 
-		$item = $xml_request->children();		
-		$a_item = $item[0];
+	$item = $xml_request->children();		
+	$a_item = $item[0];
 		
 
 
 
-$count = 0;
+	$count = 0;
 
 	foreach ($a_item as $second_gen){
 		if($count == 0){
@@ -42,8 +43,9 @@ $count = 0;
 		}
 	
 	}
-$forecast = "http://weather.yahooapis.com/forecastrss?w=" . $WOEID . "&u=c";
-$xml=simplexml_load_file($forecast);
+	$forecast = "http://weather.yahooapis.com/forecastrss?w=" . $WOEID . "&u=c";
+	$xml=simplexml_load_file($forecast);
+	
 } else {
 
 }
