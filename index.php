@@ -52,14 +52,16 @@ echo "<br/> -------- <br/>";
 
 //return the same xml object
 $xml_child = $xml->children();
-$title = $xml_child->children()[0];
-$link = $xml_child->children()[1];
-$description = $xml_child->children()[2];
-$language = $xml_child->children()[3];
-$lastBuildDate = $xml_child->children()[4];
-$ttl = $xml_child->children()[5];
-$image = $xml_child->children()[6];
-$item = $xml_child->children()[7];
+$second_xml_child = $xml_child->children();
+
+$title = $second_xml_child[0];
+$link = $second_xml_child[1];
+$description = $second_xml_child[2];
+$language = $second_xml_child[3];
+$lastBuildDate = $second_xml_child[4];
+$ttl = $second_xml_child[5];
+$image = $second_xml_child[6];
+$item = $second_xml_child[7];
 
 
 foreach ($item as $second_gen) { 
