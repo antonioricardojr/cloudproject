@@ -1,3 +1,4 @@
 web1:
+ document_root: bootstrap/
  php_extensions:
    - libxml
